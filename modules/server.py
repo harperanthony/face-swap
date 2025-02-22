@@ -112,6 +112,3 @@ def start():
         conn, addr = server_socket.accept()  
         client_thread = threading.Thread(target=handle_client, args=(conn, addr))  
         client_thread.start()
-
-if __name__ == "__main__":  
-    main()

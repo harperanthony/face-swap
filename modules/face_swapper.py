@@ -1,12 +1,11 @@
-from typing import Any, List
+from typing import Any
 import insightface
 import threading
 import modules.globals
 from modules.face_analyser import get_one_face
-from modules.typing import Face, Frame
+from modules.typing import Frame
 from modules.utilities import (
     resolve_relative_path,
-    conditional_download
 )
 
 FACE_SWAPPER = None
@@ -25,7 +24,7 @@ def get_face_swapper() -> Any:
     return FACE_SWAPPER
 
 
-def swap_face(source_face: Face, target_face: Face, temp_frame: Frame) -> Frame:
+def swap_face(source_face, target_face, temp_frame: Frame) -> Frame:
     face_swapper = get_face_swapper()
 
     # Apply the face swap
@@ -36,7 +35,7 @@ def swap_face(source_face: Face, target_face: Face, temp_frame: Frame) -> Frame:
     return swapped_frame
 
 
-def process_frame(source_face: Face, temp_frame: Frame) -> Frame:
+def process_frame(source_face, temp_frame: Frame) -> Frame:
     target_face = get_one_face(temp_frame)
     if target_face:
         temp_frame = swap_face(source_face, target_face, temp_frame)
