@@ -17,7 +17,7 @@ from modules.face_analyser import (
 )
 
 # Server configuration  
-HOST = '100.99.99.18'  # Replace with your server's IP address  
+HOST = '172.21.0.2'  # Replace with your server's IP address  
 PORT = 8001  
 
 def handle_client(conn, addr):  
@@ -104,9 +104,9 @@ def handle_client(conn, addr):
 def start():  
     # Create a socket  
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.connect(("8.8.8.8", 80))
-    HOST = server_socket.getsockname()[0]
-    server_socket.close()
+    # server_socket.connect(("8.8.8.8", 80))
+    # HOST = server_socket.getsockname()[0]
+    # server_socket.close()
     server_socket.bind((HOST, PORT))  
     server_socket.listen(5)  # Allow up to 5 unaccepted connections before refusing new connections  
     print("Server listening on", HOST, PORT)  
