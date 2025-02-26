@@ -17,8 +17,8 @@ from modules.face_analyser import (
 )
 
 # Server configuration  
-HOST = '213.173.108.139'  # Replace with your server's IP address  
-PORT = 11058  
+HOST = '0.0.0.0'  # Replace with your server's IP address  
+PORT = 8080
 
 def handle_client(conn, addr):  
     print(f"Connection from: {addr}")  
