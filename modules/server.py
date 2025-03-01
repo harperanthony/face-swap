@@ -11,6 +11,7 @@ import cv2
 from cv2_enumerate_cameras import enumerate_cameras  # Add this import
 import time
 from modules.face_swapper import process_frame
+from concurrent.futures import ThreadPoolExecutor
 
 from modules.face_analyser import (
     get_one_face,
