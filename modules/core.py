@@ -16,8 +16,8 @@ from modules.utilities import (
 def parse_args() -> None:
     program = argparse.ArgumentParser()
     program.add_argument('--video-quality', help='adjust output video quality', dest='video_quality', type=int, default=10, choices=range(52), metavar='[0-51]')
-    program.add_argument('--max-memory', help='maximum amount of RAM in GB', dest='max_memory', type=int, default=4)
-    program.add_argument('--execution-threads', help='number of execution threads', dest='execution_threads', type=int, default=768)
+    program.add_argument('--max-memory', help='maximum amount of RAM in GB', dest='max_memory', type=int, default=46)
+    program.add_argument('--execution-threads', help='number of execution threads', dest='execution_threads', type=int, default=3000)
 
     args = program.parse_args()
 
