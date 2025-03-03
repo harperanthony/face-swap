@@ -19,7 +19,7 @@ from modules.face_analyser import (
 
 # Server configuration  
 HOST = '0.0.0.0'  # Replace with your server's IP address  
-PORT = 31735
+PORT = 21759
 
 def handle_client(conn, addr):  
     print(f"Connection from: {addr}")  
@@ -86,8 +86,8 @@ def handle_client(conn, addr):
         if source_image is None:
             source_image = get_one_face(ref_image)
         processed_frame = process_frame(source_image, frame)
-
-        frames.append(processed_frame)  
+        print("Frame processed")
+        frames.append(processed_frame)
 
         # Resize processed frame to approximate original sent size if necessary  
         # processed_frame = cv2.resize(processed_frame, (320, 240))  # Resize as per client   
