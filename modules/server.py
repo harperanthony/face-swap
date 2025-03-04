@@ -103,18 +103,28 @@ def handle_client(conn, addr):
     conn.close()  
 
 def start():  
+    # # Create a socket  
+    # server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # # server_socket.connect(("8.8.8.8", 80))
+    # # HOST = server_socket.getsockname()[0]
+    # # server_socket.close()
+    # server_socket.bind((HOST, PORT))  
+    # server_socket.listen(5)  # Allow up to 5 unaccepted connections before refusing new connections  
+    # print("Server listening on", HOST, PORT)  
+
+    # with ThreadPoolExecutor(max_workers=8) as executor:
+    #     while True:
+    #         client_socket, addr = server_socket.accept()
+    #         print(f"Accepted connection from {addr}")
+    #         # Submit the client handling task to the pool
+    #         executor.submit(handle_client, client_socket)
     # Create a socket  
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    # server_socket.connect(("8.8.8.8", 80))
-    # HOST = server_socket.getsockname()[0]
-    # server_socket.close()
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  
     server_socket.bind((HOST, PORT))  
     server_socket.listen(5)  # Allow up to 5 unaccepted connections before refusing new connections  
     print("Server listening on", HOST, PORT)  
 
-    with ThreadPoolExecutor(max_workers=8) as executor:
-        while True:
-            client_socket, addr = server_socket.accept()
-            print(f"Accepted connection from {addr}")
-            # Submit the client handling task to the pool
-            executor.submit(handle_client, client_socket)
+    while True:  
+        conn, addr = server_socket.accept()  
+        client_thread = threading.Thread(target=handle_client, args=(conn, addr))  
+        client_thread.start()
