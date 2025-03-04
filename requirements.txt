@@ -4,7 +4,6 @@ cv2_enumerate_cameras==1.1.15
 onnx==1.16.0
 insightface==0.7.3
 pillow==11.1.0
-onnxruntime-silicon==1.16.3;
 onnxruntime-gpu==1.16.3;
 tensorflow[and-cuda]
 opennsfw2==0.10.2
