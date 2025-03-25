@@ -6,8 +6,8 @@ import torch
 import tensorflow
 
 import modules.globals
-# import modules.swap as swap
-import modules.server as swap
+import modules.swap as swap
+# import modules.server as swap
 from modules.utilities import (
     resolve_relative_path,
     conditional_download
